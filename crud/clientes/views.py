@@ -5,7 +5,5 @@ from .models import Cliente
 
 
 def listar_clientes(request):
-    # faz um select na tabela Cliente e retorna todos os dados
-    clientes = Cliente.objects.all()
-    # render pra renderizar as infos dos clientes e entre '' o template
-    return render(request, 'cliente/listar_clientes.html', {'clientes': clientes})
+    clientes = Cliente.objects.all() # faz um select na tabela Cliente e retorna todos os dados
+    return render(request, 'cliente/listar_clientes.html', {'clientes': clientes}) # render pra renderizar as infos dos clientes e entre '' o template
