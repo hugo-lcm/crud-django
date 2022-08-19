@@ -9,31 +9,38 @@
 <body>
 
     <!-- {{ form.as_p }} criação do formulário de forma automática, abaixo a forma manual -->
-    <div>
-        <label>Nome: </label>
-        {{ form.nome }}
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label>Nome: </label>
+            {{ form.nome }}
 
-    </div>
+        </div>
 
-    <div>
-        <label>Sexo: </label>
-        {{ form.sexo }}
-    </div>
+        <div>
+            <label>Sexo: </label>
+            {{ form.sexo }}
+        </div>
 
-    <div>
-        <label>Data de Nascimento: </label>
-        {{ form.data_nascimento }}
-    </div>
+        <div>
+            <label>Data de Nascimento: </label>
+            {{ form.data_nascimento }}
+        </div>
 
-    <div>
-        <label>Email: </label>
-        {{ form.email }}
-    </div>
+        <div>
+            <label>Email: </label>
+            {{ form.email }}
+        </div>
 
-    <div>
-        <label>Profissão: </label>
-        {{ form.profissao }}
-    </div>
+        <div>
+            <label>Profissão: </label>
+            {{ form.profissao }}
+        </div>
+
+        <div>
+            <input type="submit" name="Cadastrar">
+        </div>
+    </form>
 
 </body>
 
