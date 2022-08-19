@@ -13,6 +13,10 @@ def listar_clientes(request):
 
 
 def inserir_cliente(request):
+    if request.method == 'POST':
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            form.save()
     form = ClienteForm()
     # a variável form é uma instância do ClienteForm, que cria um formulário com base no models
     return render(request, 'clientes/form_cliente.html', {'form': form})
