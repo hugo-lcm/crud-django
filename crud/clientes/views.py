@@ -17,6 +17,7 @@ def inserir_cliente(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-    form = ClienteForm()
+    else:
+        form = ClienteForm()
     # a variável form é uma instância do ClienteForm, que cria um formulário com base no models
     return render(request, 'clientes/form_cliente.html', {'form': form})
