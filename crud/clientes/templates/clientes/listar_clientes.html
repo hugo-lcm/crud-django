@@ -18,7 +18,7 @@ Lista de clientes
         <!-- executar cód. python dentro do file html -->
         <tr>
             <td>{{i.nome}}</td> <!-- concatenar python com html -->
-            <td>{{i.data_nascimento}}</td>
+            <td>{{i.data_nascimento | date:"d M Y"}}</td> <!-- filtro para exibição da data -->
             <td>{{i.sexo}}</td>
         </tr>
         {% endfor %}
