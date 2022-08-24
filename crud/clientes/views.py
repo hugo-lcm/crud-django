@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Cliente
 from .forms import ClienteForm
+from .models import Cliente
+
 
 # Create your views here.
 
@@ -22,3 +23,8 @@ def inserir_cliente(request):
         form = ClienteForm()
     # a variável form é uma instância do ClienteForm, que cria um formulário com base no models
     return render(request, 'clientes/form_cliente.html', {'form': form})
+
+
+def listar_cliente_id(request, id):
+    cliente = Cliente.objects.get(id=id)  # busca na tabela pelo id passado como parâmetro
+    return render(request, 'clientes/listar_cliente.html', {'cliente': cliente})
