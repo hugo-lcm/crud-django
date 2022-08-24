@@ -1,4 +1,3 @@
-from traceback import format_stack
 from django import forms
 from .models import Cliente
 
@@ -10,3 +9,4 @@ class ClienteForm(forms.ModelForm):
         model = Cliente
         fields = ['nome', 'email', 'sexo', 'profissao',
                   'data_nascimento']  # campos a serem validados
+    

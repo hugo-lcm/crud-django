@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Cliente
 from .forms import ClienteForm
 
@@ -17,6 +17,7 @@ def inserir_cliente(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('listar_clientes')
     else:
         form = ClienteForm()
     # a variável form é uma instância do ClienteForm, que cria um formulário com base no models
