@@ -1,50 +1,54 @@
 {% extends "clientes/base.html" %}
 {% load meus_filtros %}
+
 {% block titulo %}
 Cadastro de clientes
 {% endblock titulo %}
 
 {% block conteudo %}
-<!-- {{ form.as_p }} criação do formulário de forma automática, abaixo a forma manual -->
-<form method="post">
+    <h1>Cadastro de clientes</h1>
+    <!-- {{ form.as_p }} criação do formulário de forma automática, abaixo a forma manual -->
+    <form method="post">
 
-    {% csrf_token %}
+        {% csrf_token %}
 
-    <div class="form-group">
-        {{ form.nome.errors }}
-        <label>Nome: </label>
-        {{ form.nome|addclass:'form-control'}}
-    </div>
+        <div class="form-group">
+            <label>Nome: </label>
+            {{ form.nome|addclass:'form-control' }}
+            {{ form.nome.errors }}
+        </div>
 
-    <div class="form-group">
-        {{ form.sexo.errors }}
-        <label>Sexo: </label>
-        {{ form.sexo|addclass:'form-control' }}
-    </div>
+        <div class="form-group">
+            <label>Sexo: </label>
+            {{ form.sexo|addclass:'form-control' }}
+            {{ form.sexo.errors }}
+        </div>
 
-    <div class="form-group">
-        {{ form.data_nascimento.errors }}
-        <label>Data de Nascimento: </label>
-        {{ form.data_nascimento|addclass:'form-control' }}
-    </div>
+        <div class="form-group">
+            <label>Data de Nascimento: </label>
+            {{ form.data_nascimento|addclass:'form-control' }}
+            {{ form.data_nascimento.errors }}
+        </div>
 
-    <div class="form-group">{{ form.email.errors }}
-        <label>Email: </label>
-        {{ form.email|addclass:'form-control' }}
-    </div>
+        <div class="form-group">
+            <label>Email: </label>
+            {{ form.email|addclass:'form-control' }}
+            {{ form.email.errors }}
+        </div>
 
-    <div class="form-group">
-        {{ form.profissao.errors }}
-        <label>Profissão: </label>
-        {{ form.profissao|addclass:'form-control' }}
-    </div>
+        <div class="form-group">
+            <label>Profissão: </label>
+            {{ form.profissao|addclass:'form-control' }}
+            {{ form.profissao.errors }}
+        </div>
 
-    <div>
-        <input type="submit" name="Cadastrar">
-    </div>
-    <div>
-        <a href="{% url 'listar_clientes' %}"><button type="button" class="btn btn-primary">Listar clientes</button></a>
-    </div>
+        <div>
+            <input class="btn btn-primary" type="submit" name="Cadastrar" value="Cadastrar">
 
-</form>
+            <a href="{% url 'listar_clientes' %}">
+                <button type="button" class="btn btn-primary">Listar clientes</button>
+            </a>
+        </div>
+
+    </form>
 {% endblock conteudo %}
