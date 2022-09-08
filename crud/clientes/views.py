@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .forms import ClienteForm
-from .models import Cliente
 from .entidades import cliente
 from .services import cliente_service
 
@@ -34,8 +33,8 @@ def inserir_cliente(request):
 
 
 def listar_cliente_id(request, id):
-    cliente = cliente_service.listar_cliente_id(id)
-    return render(request, 'clientes/listar_cliente.html', {'cliente': cliente})
+    cliente_atual = cliente_service.listar_cliente_id(id)
+    return render(request, 'clientes/listar_cliente.html', {'cliente': cliente_atual})
 
 
 def editar_cliente(request, id):
@@ -55,8 +54,8 @@ def editar_cliente(request, id):
 
 
 def remover_cliente(request, id):
-    cliente = cliente_service.listar_cliente_id(id)
+    cliente_atual = cliente_service.listar_cliente_id(id)
     if request.method == 'POST':
-        cliente_service.remover_cliente(cliente)
+        cliente_service.remover_cliente(cliente_atual)
         return redirect('listar_clientes')
-    return render(request, 'clientes/confirma_exclusao.html', {'cliente': cliente})
+    return render(request, 'clientes/confirma_exclusao.html', {'cliente': cliente_atual})
